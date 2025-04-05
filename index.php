@@ -171,4 +171,6 @@ include "includes/header.php";
 
         <hr>
 
-
+<?php
+include "includes/footer.php";
+?>
