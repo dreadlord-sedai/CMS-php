@@ -63,9 +63,9 @@ include "includes/header.php";
 
             </div>
 
-            
+
             <!-- Blog Sidebar Widgets Column -->
-            <?php
+            <?php 
             include "includes/sidebar.php";
             ?>
 
