@@ -1,12 +1,12 @@
 <?php
-include "includes/header.php";
+include "includes/admin_header.php";
 ?>
 
     <div id="wrapper">
 
         <!-- Navigation -->
         <?php
-        include "includes/navigation.php";
+        include "includes/admin_navigation.php";
         ?>
 
         <div id="page-wrapper">
@@ -32,7 +32,12 @@ include "includes/header.php";
                         </form>
                     </div>
 
+                    <!-- Add Category Form -->
                     <div class="col-xs-6">
+                        <?php
+                        $query = "SELECT * FROM categories";
+                        $select_categories = mysqli_query($connection, $query);
+                        ?>
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -41,10 +46,16 @@ include "includes/header.php";
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>PHP</td>
-                                </tr>
+                                <?php
+                                    while ($row = mysqli_fetch_assoc($select_categories)) {
+                                        $cat_title = $row['cat_title'];
+                                        $cat_id = $row['id'];
+                                        echo "<tr>";
+                                        echo "<td>{$cat_id}</td>";
+                                        echo "<td>{$cat_title}</td>";
+                                        echo "</tr>";
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>
