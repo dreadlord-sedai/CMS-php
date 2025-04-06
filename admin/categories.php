@@ -23,7 +23,7 @@ include "includes/admin_header.php";
                 <div class="col-xs-6">
                     <!-- Add Category to Database -->
                     <?php
-                    
+                    insert_categories();
                     ?>
 
                     <!-- Add Category Form -->
