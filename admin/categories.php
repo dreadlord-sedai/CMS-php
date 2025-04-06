@@ -37,6 +37,7 @@ include "includes/admin_header.php";
                     }
                     ?>
 
+                    <!-- Add Category Form -->
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="cat_title">Add Category</label>
@@ -46,9 +47,45 @@ include "includes/admin_header.php";
                             <input type="submit" name="sumbit" value="Add Category" class="btn btn-primary">
                         </div>
                     </form>
+
+                    <!-- Edit Category Form -->
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="cat_title">Edit Category</label>
+
+                            <?php
+                            if (isset($_GET['edit'])) {
+                                $cat_id = $_GET['edit'];
+
+                                // Find all categories from the database
+                                $query = "SELECT * FROM categories WHERE id = {$cat_id}";
+                                $select_categories_id = mysqli_query($connection, $query);
+
+                                while ($row = mysqli_fetch_assoc($select_categories_id)) {
+                                    $cat_title = $row['cat_title'];
+                                    $cat_id = $row['id'];
+                            ?>
+
+                                    <input value="<?php if (isset($cat_title)) {
+                                                        echo $cat_title;
+                                                    } ?>" type="text" class="form-control" name="cat_title">
+
+
+
+                            <?php
+                                }
+                            }
+
+                            ?>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="sumbit" value="Update Category" class="btn btn-primary">
+                        </div>
+                    </form>
+
                 </div>
 
-                <!-- Add Category Form -->
+                <!-- Category View -->
                 <div class="col-xs-6">
                     <table class="table table-bordered table-hover">
                         <thead>
@@ -70,6 +107,7 @@ include "includes/admin_header.php";
                                 echo "<td>{$cat_id}</td>";
                                 echo "<td>{$cat_title}</td>";
                                 echo "<td><a href='categories.php?delete={$cat_id}'>Delete</a></td>";
+                                echo "<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";
                                 echo "</tr>";
                             }
                             ?>
