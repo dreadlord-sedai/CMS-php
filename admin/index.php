@@ -23,7 +23,11 @@ include "includes/header.php";
                     <div class="col-xs-6">
                         <form action="">
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary" name="submit" value="Add Post">
+                                <label for="cat_title">Add Category</label>
+                                <input type="text" class="form-control" name="cat_title">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="sumbit" value="Add Category" class="btn btn-primary">
                             </div>
                         </form>
                     </div>
