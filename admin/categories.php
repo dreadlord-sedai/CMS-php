@@ -23,18 +23,7 @@ include "includes/admin_header.php";
                 <div class="col-xs-6">
                     <!-- Add Category to Database -->
                     <?php
-                    if (isset($_POST['sumbit'])) {
-                        $cat_title = $_POST['cat_title'];
-                        if ($cat_title == "" || empty($cat_title)) {
-                            echo "<div class='alert alert-danger'>This field should not be empty</div>";
-                        } else {
-                            $query = "INSERT INTO categories(cat_title) VALUES('{$cat_title}')";
-                            $create_category_query = mysqli_query($connection, $query);
-                            if (!$create_category_query) {
-                                die('QUERY FAILED' . mysqli_error($connection));
-                            }
-                        }
-                    }
+                    
                     ?>
 
                     <!-- Add Category Form -->
@@ -50,7 +39,10 @@ include "includes/admin_header.php";
 
                     <!-- Edit Category Form -->
                     <?php
-                    include "includes/update_categories.php";
+                    if (isset($_GET['edit'])) {
+                        $cat_id = $_GET['edit'];
+                        include "includes/update_categories.php";
+                    }
                     ?>
 
                 </div>
