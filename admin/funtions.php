@@ -2,6 +2,8 @@
 
 function insert_categories()
 {
+    global $connection;
+    
     if (isset($_POST['sumbit'])) {
         $cat_title = $_POST['cat_title'];
         if ($cat_title == "" || empty($cat_title)) {

@@ -3,7 +3,7 @@
  instead of being sent directly to the browser.
 This allows you to manipulate the output before sending it to the browser.-->
 <?php ob_start(); ?>
-<?php include "../includes/funtions.php"; ?>
+<?php include "./funtions.php"; ?>
 <?php include "../includes/db.php"; ?>
 
 <!DOCTYPE html>
