@@ -12,8 +12,17 @@ if (isset($_POST['title'])) {
     $post_content = $_POST['post_content'];
     $post_date = date('d-m-y');
     $post_comment_count = 4;
-    
+
     move_uploaded_file($post_image_temp, "../images/$post_image");
+
+    $query = "INSERT INTO posts(post_title, post_category_id, post_date, post_author, post_image, post_content, post_tags, post_status)
+              VALUES('{$post_title}', '{$post_category_id}', now(), '{$post_author}', '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_status}')";
+
+    $create_post_query = mysqli_query($connection, $query);
+
+    confirm_query($create_post_query);
+
+    header("Location: posts.php?source=add_post");
 }
 ?>
 
