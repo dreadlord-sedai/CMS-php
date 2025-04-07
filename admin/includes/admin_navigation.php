@@ -112,7 +112,7 @@
 
 
             <li class="active">
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Commentse</a>
+                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Comments</a>
             </li>
 
             <li>
