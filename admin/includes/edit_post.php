@@ -33,6 +33,14 @@ if (isset($_POST['update_post'])) {
     $post_date = date('d-m-y');
     move_uploaded_file($post_image_temp, "../images/$post_image");
 
+    if (empty($post_image)) {
+        $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
+        $select_image = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($select_image)) {
+            $post_image = $row['post_image'];
+        }
+    }
+
     $query = "UPDATE posts SET ";    
     $query .= "post_title = '{$post_title}', ";
     $query .= "post_category_id = '{$post_category_id}', ";
@@ -99,6 +107,7 @@ if (isset($_POST['update_post'])) {
         <label for="post_image">Post Image</label>
         <br>
         <img width="100" src="../images/<?php echo $post_image; ?>" alt="">
+        <input type="file" name="image">
     </div>
 
     <div class="form-group">
