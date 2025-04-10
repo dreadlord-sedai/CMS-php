@@ -41,9 +41,6 @@ include "includes/navigation.php";
             ?>
 
                 <h2>
-                    <?php
-                    echo "Post ID: " . $post_id; // Debugging
-                    ?>
                     <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title; ?></a>
                 </h2>
                 <p class="lead">

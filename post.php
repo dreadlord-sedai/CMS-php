@@ -20,12 +20,8 @@ include "includes/navigation.php";
             // Check if 'p_id' is set in the URL
             if (isset($_GET['p_id'])) {
                 $the_post_id = $_GET['p_id'];
-                echo "Post IDe: " . $the_post_id; // Debugging
-            } else {
-                echo "Post ID is not set."; // Handle the case where 'p_id' is missing
-                $the_post_id = null; // Optional: Initialize the variable to avoid further errors
             }
-
+            
             $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
             $select_all_posts_query = mysqli_query($connection, $query);
 
@@ -75,25 +71,25 @@ include "includes/navigation.php";
             <?php
 
             if (isset($_POST['create_comment'])) {
+
                 $the_post_id = $_GET['p_id'];
                 $comment_author = $_POST['comment_author'];
                 $comment_email = $_POST['comment_email'];
                 $comment_content = $_POST['comment_content'];
-                $comment_status = 'unapproved';
-                $comment_date = date('d-m-y');
 
-                $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) ";
-                $query .= "VALUES ($the_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', '{$comment_status}', now())";
-                $create_comment_query = mysqli_query($connection, $query);
-                if (!$create_comment_query) {
-                    die('QUERY FAILED' . mysqli_error($connection));
-                }
 
-                // Update the comment count in the posts table
-                $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 WHERE post_id = $the_post_id";
-                $update_comment_count = mysqli_query($connection, $query);
-                if (!$update_comment_count) {
-                    die('QUERY FAILED' . mysqli_error($connection));
+                if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
+
+
+                    $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
+
+                    $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved',now())";
+
+                    $create_comment_query = mysqli_query($connection, $query);
+
+                    if (!$create_comment_query) {
+                        die('QUERY FAILED' . mysqli_error($connection));
+                    }
                 }
             }
             ?>
@@ -101,20 +97,23 @@ include "includes/navigation.php";
             <!-- Comments Form -->
             <div class="well">
                 <h4>Leave a Comment:</h4>
-                <form role="form" method="post" >
+                <form action="#" method="post" role="form">
+
                     <div class="form-group">
-                        <label for="comment_author">Author</label>
-                        <input type="text" class="form-control" name="comment_author">
+                        <label for="Author">Author</label>
+                        <input type="text" name="comment_author" class="form-control" name="comment_author">
                     </div>
+
                     <div class="form-group">
-                        <label for="comment_email">Email</label>
-                        <input type="email" class="form-control" name="comment_email">
+                        <label for="Author">Email</label>
+                        <input type="email" name="comment_email" class="form-control" name="comment_email">
                     </div>
+
                     <div class="form-group">
-                        <label for="comment_content">Comment</label>
-                        <textarea class="form-control" rows="3"></textarea>
+                        <label for="comment">Your Comment</label>
+                        <textarea name="comment_content" class="form-control" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
                 </form>
             </div>
 
