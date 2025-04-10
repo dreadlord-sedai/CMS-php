@@ -10,7 +10,7 @@
             <th>Date</th>
             <th>Approve</th>
             <th>Unapprove</th>
-            <th>Date</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody></tbody>
@@ -49,7 +49,6 @@
         echo "<td><a href='posts.php?source=edit_post&p_id={$comment_post_id}'>Approve</a></td>";
         echo "<td><a href='posts.php?delete={$comment_post_id}'>Unapprove</a></td>";
         echo "</tr>";
-        echo "<td><a href='posts.php?source=edit_post&p_id={$comment_post_id}'>Edit</a></td>";
         echo "<td><a href='posts.php?delete={$comment_post_id}'>Delete</a></td>";
         echo "</tr>";
     }
