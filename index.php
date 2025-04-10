@@ -15,15 +15,8 @@ include "includes/navigation.php";
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-            <h1 class="page-header">
-                Page Heading
-                <small>Secondary Text</small>
-            </h1>
-
-            <!-- First Blog Post -->
-
             <?php
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC";
             $select_all_posts_query = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
@@ -37,8 +30,16 @@ include "includes/navigation.php";
                 $post_comment_count = $row['post_comment_count'];
                 $post_category_id = $row['post_category_id'];
                 $post_tags = $row['post_tags'];
+                
 
             ?>
+
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+
+                <!-- First Blog Post -->
 
                 <h2>
                     <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title; ?></a>
