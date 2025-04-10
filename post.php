@@ -17,8 +17,12 @@ include "includes/navigation.php";
 
         <?php
 
-            if (isset($_GET['p_id'])) {
-                $the_post_id = $_GET['p_id'];
+            if (isset($_GET['p_id']) && is_numeric($_GET['p_id'])) {
+                $the_post_id = intval($_GET['p_id']);
+            } else {
+                // Redirect or handle the error if 'p_id' is not set or invalid
+                header("Location: index.php");
+                exit();
             }
 
             $query = "SELECT * FROM posts WHERE post_id = $the_post_id";
