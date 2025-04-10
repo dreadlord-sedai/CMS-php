@@ -90,6 +90,15 @@ include "includes/navigation.php";
                     if (!$create_comment_query) {
                         die('QUERY FAILED' . mysqli_error($connection));
                     }
+
+                    // Increment comment count in posts table
+                    $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 WHERE post_id = $the_post_id";
+                    $update_comment_count = mysqli_query($connection, $query);
+                    if (!$update_comment_count) {
+                        die('QUERY FAILED' . mysqli_error($connection));
+                    }
+
+                    header("Location: post.php?p_id=$the_post_id");
                 }
             }
             ?>
