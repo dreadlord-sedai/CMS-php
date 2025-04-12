@@ -38,12 +38,12 @@ if (isset($_POST['title'])) {
     </div>
 
     <div class="form-group">
-        <label for="post_category">Role</label>
-        <select name="post_category_id" id="">
-            <?php
+        <label for="user_role">Role</label>
+        <select name="user_role" id="">
+            <?php 
             $query = "SELECT * FROM users ";
-            $select_users = mysqli_query($connection, $query);
-            confirm_query($select_categories);
+            $select_user_role = mysqli_query($connection, $query);
+            confirm_query($select_user_role);
 
             while ($row = mysqli_fetch_assoc($select_categories)) {
                 $user_id = $row['user_id'];
