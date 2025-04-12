@@ -37,6 +37,23 @@ if (isset($_POST['title'])) {
         <input type="text" class="form-control" name="post_status">
     </div>
 
+    <div class="form-group">
+        <label for="post_category">Role</label>
+        <select name="post_category_id" id="">
+            <?php
+            $query = "SELECT * FROM users ";
+            $select_users = mysqli_query($connection, $query);
+            confirm_query($select_categories);
+
+            while ($row = mysqli_fetch_assoc($select_categories)) {
+                $user_id = $row['user_id'];
+                $user_role = $row['user_role'];
+                echo "<option value='{$user_id}'>{$user_role}</option>";
+            }
+            ?>
+        </select>
+    </div>
+
 
     <div class="form-group">
         <label for="title">Username</label>
@@ -59,22 +76,7 @@ if (isset($_POST['title'])) {
         <input type="text" class="form-control" name="post_status">
     </div>
 
-    <div class="form-group">
-        <label for="post_category">Role</label>
-        <select name="post_category_id" id="">
-            <?php
-            $query = "SELECT * FROM users ";
-            $select_users = mysqli_query($connection, $query);
-            confirm_query($select_categories);
 
-            while ($row = mysqli_fetch_assoc($select_categories)) {
-                $user_id = $row['user_id'];
-                $user_role = $row['user_role'];
-                echo "<option value='{$user_id}'>{$user_role}</option>";
-            }
-            ?>
-        </select>
-    </div> 
 
     <div class="form-group">
         <input type="submit" value="Publish Post" name="submit" class="btn btn-primary">
