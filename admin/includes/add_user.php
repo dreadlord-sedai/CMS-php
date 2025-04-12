@@ -63,14 +63,14 @@ if (isset($_POST['title'])) {
         <label for="post_category">Role</label>
         <select name="post_category_id" id="">
             <?php
-            $query = "SELECT * FROM users";
-            $select_categories = mysqli_query($connection, $query);
+            $query = "SELECT * FROM users ";
+            $select_users = mysqli_query($connection, $query);
             confirm_query($select_categories);
 
             while ($row = mysqli_fetch_assoc($select_categories)) {
-                $cat_id = $row['cat_id'];
-                $cat_title = $row['cat_title'];
-                echo "<option value='{$cat_id}'>{$cat_title}</option>";
+                $user_id = $row['user_id'];
+                $user_role = $row['user_role'];
+                echo "<option value='{$user_id}'>{$user_role}</option>";
             }
             ?>
         </select>
