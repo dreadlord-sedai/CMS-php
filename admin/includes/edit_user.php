@@ -63,69 +63,59 @@ if (isset($_POST['update_post'])) {
 ?>
 <form action="" method="post" enctype="multipart/form-data">
 
-    <div class="form-group">
-        <label for="title">Post Title</label>
-        <input type="text" class="form-control" name="title" value="<?php
-                                                                    echo $post_title;
-                                                                    ?>">
-    </div>
+<div class="form-group">
+    <label for="title">Firstname</label>
+    <input type="text" class="form-control" name="title">
+</div>
 
-    <div class="form-group">
-        <label for="post_category">Post Category Id</label>
-        <select name="post_category" id="post_category" class="form-control">
-            <?php
-            // Fetch categories from the database
-            $query = "SELECT * FROM categories";
-            $select_categories = mysqli_query($connection, $query);
+<div class="form-group">
+    <label for="post_status">Lastname</label>
+    <input type="text" class="form-control" name="post_status">
+</div>
 
-            confirm_query($select_categories);
+<div class="form-group">
+    <label for="user_role">Role</label>
+    <select name="user_role" id="">
+        <?php 
+        $query = "SELECT * FROM users ";
+        $select_users = mysqli_query($connection, $query);
+        confirm_query($select_users);
 
-            while ($row = mysqli_fetch_assoc($select_categories)) {
-                $cat_title = $row['cat_title'];
-                $cat_id = $row['id'];
-                echo "<option value='{$cat_id}'>{$cat_title}</option>";
-            }
-            ?>
-        </select>
-    </div>
+        while ($row = mysqli_fetch_assoc($select_users)) {
+            $user_id = $row['user_id'];
+            $user_role = $row['user_role'];
+            echo "<option value='{$user_id}'>{$user_role}</option>";
+        }
+        ?>
+    </select>
+</div>
 
-    <div class="form-group">
-        <label for="title">Post Author</label>
-        <input type="text" class="form-control" name="author" value="<?php
-                                                                        echo $post_author;
-                                                                        ?>">
-    </div>
 
-    <div class="form-group">
-        <label for="post_status">Post Status</label>
-        <input type="text" class="form-control" name="post_status" value="<?php
-                                                                            echo $post_status;
-                                                                            ?>">
-    </div>
+<div class="form-group">
+    <label for="title">Username</label>
+    <input type="text" class="form-control" name="author">
+</div>
 
-    <div class="form-group">
-        <label for="post_image">Post Image</label>
-        <br>
-        <img width="100" src="../images/<?php echo $post_image; ?>" alt="">
-        <input type="file" name="image">
-    </div>
 
-    <div class="form-group">
-        <label for="post_tags">Post Tags</label>
-        <input type="text" class="form-control" name="post_tags" value="<?php
-                                                                        echo $post_tags;
-                                                                        ?>">
-    </div>
+<!-- <div class="form-group">
+    <label for="post_image">Post Image</label>
+    <input type="file" name="image">
+</div> -->
 
-    <div class="form-group">
-        <label for="post_content">Post Content</label>
-        <textarea class="form-control" name="post_content" id="" cols="30" rows="10"><?php
-                                                                                        echo $post_content;
-                                                                                        ?> </textarea>
-    </div>
+<div class="form-group">
+    <label for="post_tags">Email</label>
+    <input type="text" class="form-control" name="post_tags">
+</div>
 
-    <div class="form-group">
-        <input type="submit" value="Update Post" name="update_post" class="btn btn-primary">
-    </div>
+<div class="form-group">
+    <label for="post_status">Password</label>
+    <input type="text" class="form-control" name="post_status">
+</div>
+
+
+
+<div class="form-group">
+    <input type="submit" value="Publish Post" name="submit" class="btn btn-primary">
+</div>
 
 </form>
