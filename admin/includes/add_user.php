@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['title'])) {
+if (isset($_POST['create_user'])) {
     $user_id = $_POST['user_id'];
     $post_author = $_POST['author'];
     $post_category_id = $_POST['post_category_id'];
@@ -40,16 +40,19 @@ if (isset($_POST['title'])) {
     <div class="form-group">
         <label for="user_role">Role</label>
         <select name="user_role" id="">
-            <?php 
-            $query = "SELECT * FROM users ";
-            $select_users = mysqli_query($connection, $query);
-            confirm_query($select_users);
+            <option value="admin">Admin</option>
+            <option value="subscriber">Subscriber</option>
 
-            while ($row = mysqli_fetch_assoc($select_users)) {
-                $user_id = $row['user_id'];
-                $user_role = $row['user_role'];
-                echo "<option value='{$user_id}'>{$user_role}</option>";
-            }
+            <?php 
+            // $query = "SELECT * FROM users ";
+            // $select_users = mysqli_query($connection, $query);
+            // confirm_query($select_users);
+
+            // while ($row = mysqli_fetch_assoc($select_users)) {
+            //     $user_id = $row['user_id'];
+            //     $user_role = $row['user_role'];
+            //     echo "<option value='{$user_id}'>{$user_role}</option>";
+            // } 
             ?>
         </select>
     </div>
