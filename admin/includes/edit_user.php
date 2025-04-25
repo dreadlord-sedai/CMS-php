@@ -65,7 +65,7 @@ if (isset($_POST['update_post'])) {
 
 <div class="form-group">
     <label for="title">Firstname</label>
-    <input type="text" class="form-control" name="title">
+    <input type="text" class="form-control" name="title">   
 </div>
 
 <div class="form-group">
