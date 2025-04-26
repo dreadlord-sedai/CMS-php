@@ -37,7 +37,7 @@ if (isset($_POST['edit_user'])) {
     $query .= "user_role = '{$user_role}', ";
     $query .= "username = '{$username}', ";
     $query .= "user_email = '{$user_email}', ";
-    $query .= "user_password = '{$user_password}', ";
+    $query .= "user_password = '{$user_password}'";
     $query .= "WHERE user_id = {$the_user_id} ";
 
     $edit_user_query = mysqli_query($connection, $query);
