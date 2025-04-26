@@ -14,14 +14,14 @@ if (isset($_POST['create_user'])) {
 
     move_uploaded_file($post_image_temp, "../images/$post_image");
 
-    $query = "INSERT INTO users(post_title, post_category_id, post_date, post_author, post_image, post_content, post_tags, post_status, post_comment_count)
-              VALUES('{$post_title}', '{$post_category_id}', now(), '{$post_author}', '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_status}', '0')";
+    $query = "INSERT INTO users(user_id, user_firstname, user_lastname, user_role, username, user_email, user_password )
+              VALUES('{$user_id}','{$user_firstname}', '{$user_lastname}', '{$user_role}', '{$username}', '{$user_email}', '{$user_password}')";
 
-    $create_post_query = mysqli_query($connection, $query);
+    $create_user_query = mysqli_query($connection, $query);
 
-    confirm_query($create_post_query);
+    confirm_query($create_user_query);
 
-    header("Location: posts.php?source=add_post");
+    header("Location: posts.php?source=add_user");
 }
 ?>
 
@@ -40,7 +40,7 @@ if (isset($_POST['create_user'])) {
     <div class="form-group">
         <label for="user_role">Role</label>
         <select name="user_role" id="">
-            <option value="">Select Option</option>
+            <option value="subscriber">Select Option</option>
             <option value="admin">Admin</option>
             <option value="subscriber">Subscriber</option>
 
