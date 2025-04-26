@@ -83,7 +83,7 @@ if (isset($_POST['create_user'])) {
 
 
     <div class="form-group">
-        <input type="submit" value="create_user" name="create_user" class="btn btn-primary">
+        <input type="submit" value="Create User" name="create_user" class="btn btn-primary">
     </div>
 
 </form>
