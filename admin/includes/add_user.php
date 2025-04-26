@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['create_user'])) {
-    echo $user_firstname = $_POST['user_firstname'];
+    $user_firstname = $_POST['user_firstname'];
     $user_lastname = $_POST['user_lastname'];
     $user_role = $_POST['user_role'];
 
@@ -12,16 +12,16 @@ if (isset($_POST['create_user'])) {
     $user_password = $_POST['user_password'];
     // $post_date = date('d-m-y');
 
-    // move_uploaded_file($post_image_temp, "../images/$post_image");
+    move_uploaded_file($post_image_temp, "../images/$post_image");
 
-    // $query = "INSERT INTO users(post_title, post_category_id, post_date, post_author, post_image, post_content, post_tags, post_status, post_comment_count)
-    //           VALUES('{$post_title}', '{$post_category_id}', now(), '{$post_author}', '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_status}', '0')";
+    $query = "INSERT INTO users(post_title, post_category_id, post_date, post_author, post_image, post_content, post_tags, post_status, post_comment_count)
+              VALUES('{$post_title}', '{$post_category_id}', now(), '{$post_author}', '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_status}', '0')";
 
-    // $create_post_query = mysqli_query($connection, $query);
+    $create_post_query = mysqli_query($connection, $query);
 
-    // confirm_query($create_post_query);
+    confirm_query($create_post_query);
 
-    // header("Location: posts.php?source=add_post");
+    header("Location: posts.php?source=add_post");
 }
 ?>
 
@@ -44,7 +44,7 @@ if (isset($_POST['create_user'])) {
             <option value="admin">Admin</option>
             <option value="subscriber">Subscriber</option>
 
-            <?php 
+            <?php
             // $query = "SELECT * FROM users ";
             // $select_users = mysqli_query($connection, $query);
             // confirm_query($select_users);
