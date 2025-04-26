@@ -28,11 +28,10 @@ if (isset($_POST['edit_user'])) {
     $username = $_POST['username'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
-    // $post_date = date('d-m-y');
 
     // move_uploaded_file($post_image_temp, "../images/$post_image");
 
-    $query = "UPDATE users SET ";    
+    $query = "UPDATE users SET ";
     $query .= "user_firstname= '{$user_firstname}', ";
     $query .= "user_lastname = '{$user_lastname}', ";
     $query .= "user_role = '{$user_role}', ";
