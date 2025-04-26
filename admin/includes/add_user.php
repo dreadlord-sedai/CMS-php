@@ -12,16 +12,16 @@ if (isset($_POST['create_user'])) {
     $user_password = $_POST['user_password'];
     // $post_date = date('d-m-y');
 
-    move_uploaded_file($post_image_temp, "../images/$post_image");
+    // move_uploaded_file($post_image_temp, "../images/$post_image");
 
-    $query = "INSERT INTO users(user_id, user_firstname, user_lastname, user_role, username, user_email, user_password )
-              VALUES('{$user_id}','{$user_firstname}', '{$user_lastname}', '{$user_role}', '{$username}', '{$user_email}', '{$user_password}')";
+    $query = "INSERT INTO users(user_firstname, user_lastname, user_role, username, user_email, user_password )
+              VALUES('{$user_firstname}', '{$user_lastname}', '{$user_role}', '{$username}', '{$user_email}', '{$user_password}')";
 
     $create_user_query = mysqli_query($connection, $query);
 
     confirm_query($create_user_query);
 
-    header("Location: posts.php?source=add_user");
+    header("Location: users.php?source=view_all_users");
 }
 ?>
 
