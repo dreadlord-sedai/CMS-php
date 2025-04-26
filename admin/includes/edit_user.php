@@ -32,12 +32,18 @@ if (isset($_POST['edit_user'])) {
 
     // move_uploaded_file($post_image_temp, "../images/$post_image");
 
-    $query = "INSERT INTO users(user_firstname, user_lastname, user_role, username, user_email, user_password )
-              VALUES('{$user_firstname}', '{$user_lastname}', '{$user_role}', '{$username}', '{$user_email}', '{$user_password}')";
+    $query = "UPDATE users SET ";    
+    $query .= "user_firstname= '{$user_firstname}', ";
+    $query .= "user_lastname = '{$user_lastname}', ";
+    $query .= "user_role = '{$user_role}', ";
+    $query .= "username = '{$username}', ";
+    $query .= "user_email = '{$user_email}', ";
+    $query .= "user_password = '{$user_password}', ";
+    $query .= "WHERE user_id = {$the_user_id} ";
 
-    $create_user_query = mysqli_query($connection, $query);
+    $edit_user_query = mysqli_query($connection, $query);
 
-    confirm_query($create_user_query);
+    confirm_query($edit_user_query);
 
     header("Location: users.php?source=view_all_users");
 }
@@ -73,18 +79,6 @@ if (isset($_POST['edit_user'])) {
             } else {
                 echo "<option value='admin'>Admin</option>";
             }
-            ?>
-
-            <?php
-            // $query = "SELECT * FROM users ";
-            // $select_users = mysqli_query($connection, $query);
-            // confirm_query($select_users);
-
-            // while ($row = mysqli_fetch_assoc($select_users)) {
-            //     $user_id = $row['user_id'];
-            //     $user_role = $row['user_role'];
-            //     echo "<option value='{$user_id}'>{$user_role}</option>";
-            // } 
             ?>
         </select>
     </div>
