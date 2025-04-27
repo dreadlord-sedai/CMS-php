@@ -20,6 +20,21 @@
         <!-- /.input-group -->
     </div>
 
+    <!-- Login -->
+    <div class="well">
+        <h4>Log In</h4>
+        <form action="includes/login.php" method="post">
+            <div class="input-group">
+                <input name="username" type="text" class="form-control" placeholder="Enter Username">
+            </div>
+            <br>
+            <div class="input-group">
+                <input name="password" type="password" class="form-control" placeholder="Enter Password">
+            </div>
+        </form>
+        <!-- /.input-group -->
+    </div>
+
 
 
     <!-- Blog Categories Well -->
@@ -34,7 +49,6 @@
             <div class="col-lg-6">
                 <ul class="list-unstyled">
                     <?php
-
                     while ($row = mysqli_fetch_assoc($select_categories_sidebar)) {
                         $cat_title = $row['cat_title'];
                         $cat_id = $row['id'];
