@@ -7,7 +7,9 @@ This allows you to manipulate the output before sending it to the browser.-->
 session_start();
 
 
-if (isset($_SESSION['user_role'])) {
+if (!isset($_SESSION['user_role'])) {
+    header("Location: ../index.php");
+} else {
     if ($_SESSION['user_role'] !== 'admin') {
         header("Location: ../index.php");
     }
