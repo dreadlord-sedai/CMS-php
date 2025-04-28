@@ -3,15 +3,18 @@
  instead of being sent directly to the browser.
 This allows you to manipulate the output before sending it to the browser.-->
 <?php ob_start(); ?>
-<?php 
+<?php
 session_start();
 
 
-
-
-
+if (isset($_SESSION['user_role'])) {
+    if ($_SESSION['user_role'] !== 'admin') {
+        header("Location: ../index.php");
+    }
+}
 
 ?>
+
 <?php include "./funtions.php"; ?>
 <?php include "../includes/db.php"; ?>
 
