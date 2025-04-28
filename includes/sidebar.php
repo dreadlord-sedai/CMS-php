@@ -30,6 +30,7 @@
             <br>
             <div class="input-group">
                 <input name="password" type="password" class="form-control" placeholder="Enter Password">
+                <span class="input-group-btn"></span>
             </div>
         </form>
         <!-- /.input-group -->
