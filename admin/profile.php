@@ -5,6 +5,9 @@ include "includes/admin_header.php";
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
+    
+    $query = "SELECT * FROM users WHERE username = '{$username}'";
+    $select_user_profile_query = mysqli_query($connection, $query);
 }
 
 ?>
@@ -87,9 +90,9 @@ if (isset($_SESSION['username'])) {
                         <div class="form-group">
                             <label for="user_passsword">Password</label>
                             <input type="text" class="form-control" name="user_password"
-                                value="<?php if (isset($user_password)) {
-                                            echo $user_password;
-                                        } ?>">
+                                value="<?php
+                                        echo $user_password;
+                                        ?>">
                         </div>
 
 
