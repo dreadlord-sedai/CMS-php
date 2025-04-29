@@ -8,6 +8,17 @@ if (isset($_SESSION['username'])) {
     
     $query = "SELECT * FROM users WHERE username = '{$username}'";
     $select_user_profile_query = mysqli_query($connection, $query);
+
+    while ($row = mysqli_fetch_assoc($select_user_profile_query)) {
+        $user_id = $row['user_id'];
+        $username = $row['username'];
+        $user_password = $row['user_password'];
+        $user_firstname = $row['user_firstname'];
+        $user_lastname = $row['user_lastname'];
+        $user_email = $row['user_email'];
+        //$user_image = $row['user_image'];
+        $user_role = $row['user_role'];
+    }
 }
 
 ?>
@@ -89,7 +100,7 @@ if (isset($_SESSION['username'])) {
 
                         <div class="form-group">
                             <label for="user_passsword">Password</label>
-                            <input type="text" class="form-control" name="user_password"
+                            <input type="password" class="form-control" name="user_password"
                                 value="<?php
                                         echo $user_password;
                                         ?>">
@@ -97,7 +108,7 @@ if (isset($_SESSION['username'])) {
 
 
                         <div class="form-group">
-                            <input type="submit" value="Edit User" name="edit_user" class="btn btn-primary">
+                            <input type="submit" value="Update Profile" name="edit_user" class="btn btn-primary">
                         </div>
 
                     </form>
