@@ -21,7 +21,9 @@ if (isset($_POST['create_user'])) {
 
     confirm_query($create_user_query);
 
-    header("Location: users.php?source=view_all_users");
+    echo "<p class='bg-success'>User Created: " . " " . "<a href='users.php?source=view_all_users'>View Users</a></p>";
+
+    //header("Location: users.php?source=add_user");
 }
 ?>
 
