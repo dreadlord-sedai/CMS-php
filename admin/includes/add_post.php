@@ -72,7 +72,7 @@ if (isset($_POST['title'])) {
     </div>
 
     <div class="form-group">
-        <label for="post_content">Post Content</label>
+        <label for="summernote">Post Content</label>
         <textarea class="form-control" name="post_content" id="summernote" cols="30" rows="10"></textarea>
     </div>
 
