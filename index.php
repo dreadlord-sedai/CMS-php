@@ -30,6 +30,10 @@ include "includes/navigation.php";
                 $post_comment_count = $row['post_comment_count'];
                 $post_category_id = $row['post_category_id'];
                 $post_tags = $row['post_tags'];
+
+                if ($post_status !== 'published') {
+                    continue;
+                }
                 
 
             ?>
