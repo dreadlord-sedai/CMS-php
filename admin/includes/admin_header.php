@@ -44,7 +44,7 @@ if (!isset($_SESSION['user_role'])) {
 
     <!-- Summernote CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="css/summernote.css">
+    <link rel="stylesheet" href="css/summernote.min.css">
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -54,7 +54,7 @@ if (!isset($_SESSION['user_role'])) {
 
     <!-- Summernote JavaScript -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script> -->
-     <script src="js/summernote.min.js"></script>
+     <script src="./js/summernote.min.js"></script>
 
     <!-- Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
