@@ -43,8 +43,8 @@ if (!isset($_SESSION['user_role'])) {
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Summernote CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="css/summernote.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+    <!-- <link href="css/summernote.min.css" rel="stylesheet"> -->
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -53,8 +53,8 @@ if (!isset($_SESSION['user_role'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- Summernote JavaScript -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script> -->
-     <script src="./js/summernote.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+    <!-- <script src="js/summernote.min.js"></script> -->
 
     <!-- Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

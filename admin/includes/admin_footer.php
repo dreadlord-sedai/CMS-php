@@ -7,6 +7,8 @@
 <!-- Custom JavaScript -->
 <script src="/CMS-php/admin/js/script.js"></script>
 
+<script src="./js/summernote.min.js"></script>
+
 </body>
 
 </html>
