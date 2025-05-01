@@ -57,14 +57,6 @@ if (!isset($_SESSION['user_role'])) {
     <!-- Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                height: 300 // Set the height of the editor
-            });
-        });
-    </script>
-
 </head>
 
 <body></body>
