@@ -41,7 +41,7 @@ if (isset($_POST['update_post'])) {
         }
     }
 
-    $query = "UPDATE posts SET ";    
+    $query = "UPDATE posts SET ";
     $query .= "post_title = '{$post_title}', ";
     $query .= "post_category_id = '{$post_category_id}', ";
     $query .= "post_date = now(), ";
@@ -51,13 +51,13 @@ if (isset($_POST['update_post'])) {
     $query .= "post_content = '{$post_content}', ";
     $query .= "post_image = '{$post_image}' ";
     $query .= "WHERE post_id = {$the_post_id} ";
-    
+
 
     $update_post = mysqli_query($connection, $query);
 
     confirm_query($update_post);
     header("Location: posts.php");
-} 
+}
 
 
 ?>
@@ -97,11 +97,26 @@ if (isset($_POST['update_post'])) {
     </div>
 
     <div class="form-group">
+        <select name="post_status" id="">
+            <option value="<?php $post_status; ?>"><?php echo $post_status; ?></option>
+            <?php
+            if ($post_status == 'published') {
+                echo "<option value='draft'>Draft</option>";
+            } else {
+                echo "<option value='published'>Published</option>";
+            }
+            ?>
+        </select>
+    </div>
+
+
+
+    <!-- <div class="form-group">
         <label for="post_status">Post Status</label>
         <input type="text" class="form-control" name="post_status" value="<?php
                                                                             echo $post_status;
                                                                             ?>">
-    </div>
+    </div> -->
 
     <div class="form-group">
         <label for="post_image">Post Image</label>
