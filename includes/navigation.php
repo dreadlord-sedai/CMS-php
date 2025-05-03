@@ -27,31 +27,15 @@
                     ?>
                     <li>
                         <a href="admin">Admin</a>
-                    </li>
+                    </li> 
 
                     <?php
-                    // if (isset($_SESSION['user_role'])) {
-                    //     if (isset($_GET['p_id'])) {
-                    //         $the_post_id = $_GET['p_id'];
-                    //         echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
-                    //     }
-                    // }
-
-
                     if (isset($_SESSION['user_role'])) {
-                        echo "User role: " . $_SESSION['user_role']; // Debugging
                         if (isset($_GET['p_id'])) {
                             $the_post_id = $_GET['p_id'];
-                            echo "Post ID: " . $the_post_id; // Debugging
                             echo "<li><a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a></li>";
-                        } else {
-                            echo "p_id is not set in the URL.";
                         }
-                    } else {
-                        echo "User role is not set.";
                     }
-
-
                     ?>
 
 
