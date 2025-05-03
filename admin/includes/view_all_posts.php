@@ -1,3 +1,5 @@
+<form action="" method="post">
+
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -57,6 +59,7 @@
     ?>
     </tbody>
 </table>
+</form>
 
 <?php
 // Delete Post
