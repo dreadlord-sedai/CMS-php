@@ -1,6 +1,15 @@
 <form action="" method="post">
 
 <table class="table table-bordered table-hover">
+    <div id="bulkOptionsContainer" class="col-xs-4" style="padding: 0px;">
+        <select class="form-control" name="" id="">
+            <option value="">Select Options</option>
+            <option value="published">Publish</option>
+            <option value="draft">Draft</option>
+            <option value="delete">Delete</option>
+        </select>
+    </div>
+
     <thead>
         <tr>
             <th>Id</th>
