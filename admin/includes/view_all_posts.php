@@ -84,7 +84,7 @@ if (isset($_POST['checkBoxArray'])) {
             echo "<tr>";
         ?>
 
-            <td><input type='checkbox' class='checkBoxes' name='checkBoxArray[]' value='<?php $post_id ?>'></td>
+            <td><input type='checkbox' class='checkBoxes' name='checkBoxArray[]' value='<?php echo $post_id; ?>'></td>
 
         <?php
 
