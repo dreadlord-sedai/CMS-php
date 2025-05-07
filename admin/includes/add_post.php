@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['title'])) {
+if (isset($_POST['create_post'])) {
     $post_title = $_POST['title'];
     $post_author = $_POST['author'];
     $post_category_id = $_POST['post_category_id'];
