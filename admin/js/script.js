@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  $("#summernote").summernote({
+    height: 300, // Set the height of the editor
+  });
+});
+
+$(document).ready(function () {
   $("#selectAllBoxes").click(function (event) {
     if (this.checked) {
       $(".checkBoxes").each(function () {
@@ -12,8 +18,4 @@ $(document).ready(function () {
   });
 });
 
-$(document).ready(function () {
-  $("#summernote").summernote({
-    height: 300, // Set the height of the editor
-  });
-});
+
