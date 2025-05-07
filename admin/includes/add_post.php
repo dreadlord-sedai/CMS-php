@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['create_post'])) {
+if (isset($_POST['title'])) {
     $post_title = $_POST['title'];
     $post_author = $_POST['author'];
     $post_category_id = $_POST['post_category_id'];
@@ -21,7 +21,9 @@ if (isset($_POST['create_post'])) {
 
     confirm_query($create_post_query);
 
-    header("Location: posts.php?source=add_post");
+    $the_post_id = mysqli_insert_id($connection);
+
+    echo "<p class='bg-success'>Post Created. <a href='../post.php?p_id={$the_post_id}'>View Post</a> or <a href='posts.php'>Edit More Posts</a></p>";
 }
 ?>
 
