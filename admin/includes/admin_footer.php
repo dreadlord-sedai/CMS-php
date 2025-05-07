@@ -8,7 +8,7 @@
  <script src="js/jquery.js"></script>
 <script src="js/script.js"></script>
 
-<script src="./js/summernote.min.js"></script>
+<!-- <script src="./js/summernote.min.js"></script> -->
 
 </body>
 
