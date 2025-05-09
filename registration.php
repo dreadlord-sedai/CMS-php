@@ -5,13 +5,13 @@
 
 if (isset($_POST['submit'])) {
 
-    include "includes/db.php";
+    
 
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
+    include "includes/db.php";
 
     // Validate the form
     if (!empty($username) && !empty($email) && !empty($password)) {
@@ -37,6 +37,8 @@ if (isset($_POST['submit'])) {
         if (!$register_user_query) {
             die("Query Failed" . mysqli_error($connection));
         }
+
+        
     }
 }
 
