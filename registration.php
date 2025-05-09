@@ -11,26 +11,32 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $username = mysqli_real_escape_string($connection, $username);
-    $email = mysqli_real_escape_string($connection, $email);
-    $password = mysqli_real_escape_string($connection, $password);
 
-    $query = "SELECT randSalt FROM users";
-    $select_randsalt_query = mysqli_query($connection, $query);
 
-    if (!$select_randsalt_query) {
-        die("Query Failed" . mysqli_error($connection));
-    }
+    // Validate the form
+    if (!empty($username) && !empty($email) && !empty($password)) {
 
-    while ($row = mysqli_fetch_array($select_randsalt_query)) {
-        $salt = $row['randSalt'];
-    }
+        $username = mysqli_real_escape_string($connection, $username);
+        $email = mysqli_real_escape_string($connection, $email);
+        $password = mysqli_real_escape_string($connection, $password);
 
-    $query = "INSERT INTO users(username, user_email, user_password, user_role) ";
-    $query .= "VALUES('{$username}', '{$email}', '{$password}', 'subscriber')";
-    $register_user_query = mysqli_query($connection, $query);
-    if (!$register_user_query) {
-        die("Query Failed" . mysqli_error($connection));
+        $query = "SELECT randSalt FROM users";
+        $select_randsalt_query = mysqli_query($connection, $query);
+
+        if (!$select_randsalt_query) {
+            die("Query Failed" . mysqli_error($connection));
+        }
+
+        while ($row = mysqli_fetch_array($select_randsalt_query)) {
+            $salt = $row['randSalt'];
+        }
+
+        $query = "INSERT INTO users(username, user_email, user_password, user_role) ";
+        $query .= "VALUES('{$username}', '{$email}', '{$password}', 'subscriber')";
+        $register_user_query = mysqli_query($connection, $query);
+        if (!$register_user_query) {
+            die("Query Failed" . mysqli_error($connection));
+        }
     }
 }
 
