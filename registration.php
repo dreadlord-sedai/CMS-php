@@ -1,9 +1,11 @@
-<?php include "includes/db.php"; ?>
 <?php include "includes/header.php"; ?>
+
 
  <?php
 
     if (isset($_POST['submit'])) {
+
+        include "includes/db.php";
 
         $username = $_POST['username'];
         $email = $_POST['email'];
