@@ -21,6 +21,13 @@
         if (!$select_randsalt_query) {
             die("Query Failed" . mysqli_error($connection));
         }
+
+        while ($row = mysqli_fetch_array($select_randsalt_query)) {
+            $salt = $row['randSalt'];
+        }
+        $password = crypt($password, $salt);
+
+        
         
     }
 
