@@ -6,7 +6,7 @@
 
 if (isset($_POST['submit'])) {
 
-    
+
 
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -39,9 +39,12 @@ if (isset($_POST['submit'])) {
         }
 
         $message = "Your Registration has been submitted";
-        header("Location: index.php");
 
+    } else {
+        $message = "Fields cannot be empty";
     }
+} else {
+    $message = "";
 }
 
 
@@ -62,6 +65,9 @@ if (isset($_POST['submit'])) {
                     <div class="form-wrap">
                         <h1>Register</h1>
                         <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
+                            <h6 class="text-center"><?php if (!empty($message)) {
+                                                        echo $message;
+                                                    } ?></h6>
                             <div class="form-group">
                                 <label for="username" class="sr-only">username</label>
                                 <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username">
