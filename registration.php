@@ -1,3 +1,4 @@
+<?php require_once "includes/db.php"; ?>
 <?php include "includes/header.php"; ?>
 
 
@@ -11,7 +12,6 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    include "includes/db.php";
 
     // Validate the form
     if (!empty($username) && !empty($email) && !empty($password)) {
@@ -38,7 +38,9 @@ if (isset($_POST['submit'])) {
             die("Query Failed" . mysqli_error($connection));
         }
 
-        
+        $message = "Your Registration has been submitted";
+        header("Location: index.php");
+
     }
 }
 

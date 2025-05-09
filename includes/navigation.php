@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse" id="bs-e xample-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <?php
-                    include "includes/db.php";
+                    include_once "includes/db.php";
 
                     $query = "SELECT * FROM categories";
                     $select_all_categories_query = mysqli_query($connection, $query);
