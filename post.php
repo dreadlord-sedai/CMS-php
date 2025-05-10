@@ -168,8 +168,6 @@ include "includes/navigation.php";
             }
             ?>
 
-
-
         </div>
 
         <!-- Blog Sidebar Widgets Column -->
