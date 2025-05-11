@@ -21,6 +21,8 @@ include "includes/navigation.php";
             $find_count = mysqli_query($connection, $post_query_count);
             $count = mysqli_num_rows($find_count);
 
+            $count = ceil($count / 5);
+
             $query = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC LIMIT 5, 5";
             $select_all_posts_query = mysqli_query($connection, $query);
 
@@ -92,6 +94,14 @@ include "includes/navigation.php";
     <!-- /.row -->
 
     <hr>
+
+    <ul class="pager">
+        <?php
+        for ($i = 1; $i <= $count; $i++) {
+            echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+        }
+        ?>
+    </ul>
 
     <!-- Footer -->
     <?php
