@@ -17,13 +17,27 @@ include "includes/navigation.php";
 
             <?php
 
+            
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = "";
+            }
+            if ($page == "" || $page == 1) {
+                $page_1 = 0;
+            } else {
+                $page_1 = ($page * 5) - 5;
+            }
+
+
+
             $post_query_count = "SELECT * FROM posts";
             $find_count = mysqli_query($connection, $post_query_count);
             $count = mysqli_num_rows($find_count);
 
             $count = ceil($count / 5);
 
-            $query = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC LIMIT 5, 5";
+            $query = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC LIMIT $page_1, 5";
             $select_all_posts_query = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
