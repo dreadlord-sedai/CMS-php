@@ -112,7 +112,12 @@ include "includes/navigation.php";
     <ul class="pager">
         <?php
         for ($i = 1; $i <= $count; $i++) {
-            echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+            if ($i == $page) {
+                echo "<li><a class='active_link' href='index.php?page={$i}'>{$i}</a></li>";
+            } else {
+                echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+            }
+            
         }
         ?>
     </ul>
