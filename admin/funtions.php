@@ -48,15 +48,6 @@ function deleteCategory()
     }
 }
 
-function confirm_query($result)
-{
-    global $connection;
-    if (!$result) {
-        die("QUERY FAILED" . mysqli_error($connection));
-    }
-}
-
-
 function users_online()
 {
     global $connection;
@@ -64,14 +55,14 @@ function users_online()
     if (isset($_GET['onlineusers'])) {
         global $connection;
 
-        if (!$connection) {
+        
             session_start();
 
-            include("../includes/db.php");
-
+            
+        
             $session = session_id();
             $time = time();
-            $time_out_in_seconds = 300;
+            $time_out_in_seconds = 05;
             $time_out = $time - $time_out_in_seconds;
 
             $query = "SELECT * FROM users_online WHERE session = '$session' ";
@@ -86,6 +77,16 @@ function users_online()
             echo $count_user = mysqli_num_rows($users_online_query);
         }
     }
-}
+
 
 users_online();
+
+function confirm_query($result)
+{
+    global $connection;
+    if (!$result) {
+        die("QUERY FAILED" . mysqli_error($connection));
+    }
+}
+
+
