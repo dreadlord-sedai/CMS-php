@@ -93,7 +93,7 @@ if (isset($_POST['checkBoxArray'])) {
         <tbody></tbody>
         <?php
 
-        $query = "SELECT * FROM posts ORDER BY post_id DESC";
+        $query = "SELECT * FROM comments WHERE comment_post_id = {$post_id}";
         $select_posts = mysqli_query($connection, $query);
 
         while ($row = mysqli_fetch_assoc($select_posts)) {
