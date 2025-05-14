@@ -11,14 +11,7 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <li><a href="#">Users Online:
-
-                <?php
-
-                echo users_online();
-
-                ?>
-            </a></li>
+        <li><a href="#">Users Online: <span class="usersonline"></span></a></li>
         <li><a href="../index.php">Home Site <fa class="fa fa-home"></fa></a></li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>

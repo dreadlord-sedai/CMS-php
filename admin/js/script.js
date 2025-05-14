@@ -25,5 +25,5 @@ function loadUsersOnline() {
     $(".usersonline").text(data);
   });
 }
-
+loadUsersOnline();
 
