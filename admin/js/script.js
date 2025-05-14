@@ -25,5 +25,7 @@ function loadUsersOnline() {
     $(".usersonline").text(data);
   });
 }
-loadUsersOnline();
+setInterval(function () {
+  loadUsersOnline();
+}, 500); // Update every 5 seconds
 
