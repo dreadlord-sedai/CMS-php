@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_role'])) {
 
 ?>
 
-<?php include "./funtions.php"; ?>
+<?php include "./functions.php"; ?>
 <?php include "../includes/db.php"; ?>
 
 <!DOCTYPE html>
