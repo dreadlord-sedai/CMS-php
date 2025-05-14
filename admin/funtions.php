@@ -66,7 +66,7 @@ function users_online()
 
         if (!$connection) {
             session_start();
-            
+
             include("../includes/db.php");
 
             $session = session_id();
@@ -87,3 +87,5 @@ function users_online()
         }
     }
 }
+
+users_online();
