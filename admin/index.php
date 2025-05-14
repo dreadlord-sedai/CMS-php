@@ -39,6 +39,10 @@ $count_user = mysqli_num_rows($users_online_query);
 
                         <small><?php echo $_SESSION['username'] ?></small>
                     </h1>
+
+                    <div class="alert alert-info">
+                        <h4>Online Users: <?php echo $count_user; ?></h4>
+                    </div>
                 </div>
             </div>
 
