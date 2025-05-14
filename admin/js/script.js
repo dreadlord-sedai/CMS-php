@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 // Users online
 function loadUsersOnline() {
-  $.get("admin/functions.php?onlineusers=result", function (data) {
+  $.get("functions.php?onlineusers=result", function (data) {
     $(".usersonline").text(data);
   });
 }
