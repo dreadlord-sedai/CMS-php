@@ -19,4 +19,11 @@ $(document).ready(function () {
   });
 });
 
+// Users online
+function loadUsersOnline() {
+  $.get("functions.php?onlineusers=result", function (data) {
+    $(".usersonline").text(data);
+  });
+}
+
 
