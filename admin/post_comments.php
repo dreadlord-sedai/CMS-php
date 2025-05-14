@@ -145,11 +145,11 @@ include "includes/admin_header.php";
                                 $post_author = $row['post_author'];
                                 echo "<td><a href='../post.php?p_id={$post_id}'>{$post_title}</a></td>";
                             }
-                            
+
                             echo "<td>{$comment_date}</td>";
-                            echo "<td><a href='posts.php?approve={$comment_id}'>Approve</a></td>";
-                            echo "<td><a href='posts.php?unapprove={$comment_id}'>Unapprove</a></td>";
-                            echo "<td><a href='posts.php?delete={$comment_id}'>Delete</a></td>";
+                            echo "<td><a href='post_comments.php?approve={$comment_id}'>Approve</a></td>";
+                            echo "<td><a href='post_comments.php?unapprove={$comment_id}'>Unapprove</a></td>";
+                            echo "<td><a href='post_comments.php?delete={$comment_id}&id={$_GET['id']}'>Delete</a></td>";
                             echo "</tr>";
                         }
                         ?>
@@ -160,18 +160,10 @@ include "includes/admin_header.php";
                 <?php
                 // Delete Post
                 if (isset($_GET['delete'])) {
-                    $the_post_id = $_GET['delete'];
-                    $query = "DELETE FROM posts WHERE post_id = " . mysqli_real_escape_string($connection, $the_post_id) . "";
+                    $the_comment_id = $_GET['delete'];
+                    $query = "DELETE FROM comments WHERE comment_id = " . mysqli_real_escape_string($connection, $the_comment_id) . "";
                     $delete_query = mysqli_query($connection, $query);
-                    header("Location: posts.php");
-                }
-
-                // Reset Post Views
-                if (isset($_GET['reset'])) {
-                    $the_post_id = $_GET['reset'];
-                    $query = "UPDATE posts SET post_views_count = 0 WHERE post_id = " . mysqli_real_escape_string($connection, $the_post_id) . "";
-                    $reset_query = mysqli_query($connection, $query);
-                    header("Location: posts.php");
+                    header("Location: post_comments.php?id=" . mysqli_real_escape_string($connection, $_GET['id']) . "");
                 }
 
                 ?>
