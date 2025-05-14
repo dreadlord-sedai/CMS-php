@@ -134,9 +134,21 @@ if (isset($_POST['checkBoxArray'])) {
 
             $query = "SELECT * FROM comments WHERE comment_post_id = $post_id";
             $send_comment_query = mysqli_query($connection, $query);
+
+            if (!$send_comment_query) {
+                die("Query Failed: " . mysqli_error($connection));
+            }
+
             $count_comments = mysqli_num_rows($send_comment_query);
 
-            echo "<td>{$count_comments}</td>";
+            if ($count_comments > 0) {
+                $row = mysqli_fetch_array($send_comment_query);
+                $comment_id = $row['comment_id'];
+                echo "<td><a href='post_comments.php?id={$comment_id}'>{$count_comments}</a></td>";
+            } else {
+                echo "<td>0</td>"; // No comments
+            }
+
             echo "<td>{$post_date}</td>";
             echo "<td><a href='posts.php?reset={$post_id}'>{$post_views_count}</a></td>";
             echo "<td><a href='../post.php?p_id={$post_id}'>View Post</a></td>";
