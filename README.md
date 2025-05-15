@@ -2,11 +2,31 @@
 
 A lightweight Content Management System built using **PHP**, **Bootstrap**, and **CSS**, designed for easy management of website content through a dedicated **admin dashboard**.
 
-![image](screenshot.png)
+## Screenshots
+<details>
+  <summary>Click to view screenshots</summary>
+  
+  ### SignIn
+  <img src="./Screenshot1.png" alt="Home Page" width="700">
+  
+  ### Home Page (Letters)
+  <img src="./Screenshot2.png" alt="Home Page" width="700">  
+  
+  ### User Profile (Your House)
+  <img src="./Screenshot3.png" alt="Home Page" width="700">
+  
+  ### Explore Page (The Realm)
+  <img src="./Screenshot4.png" alt="Home Page" width="700">
+</details>
 
 ## Table of Contents
 
 - [CMS-php](#cms-php)
+  - [Screenshots](#screenshots)
+    - [SignIn](#signin)
+    - [Home Page (Letters)](#home-page-letters)
+    - [User Profile (Your House)](#user-profile-your-house)
+    - [Explore Page (The Realm)](#explore-page-the-realm)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Features](#features)
