@@ -63,37 +63,43 @@ if (isset($_POST['update_post'])) {
 
 ?>
 <form action="" method="post" enctype="multipart/form-data" class="edit-post-form">
+
     <div class="form-group">
         <label for="title">Post Title</label>
-        <input type="text" class="form-control" name="title" value="<?php echo $post_title; ?>">
+        <input type="text" class="form-control" name="title" value="<?php
+                                                                    echo $post_title;
+                                                                    ?>">
     </div>
 
     <div class="form-group">
-        <label for="post_category">Post Category</label>
+        <label for="post_category">Post Category Id</label>
         <select name="post_category" id="post_category" class="form-control">
             <?php
+            // Fetch categories from the database
             $query = "SELECT * FROM categories";
             $select_categories = mysqli_query($connection, $query);
+
             confirm_query($select_categories);
 
             while ($row = mysqli_fetch_assoc($select_categories)) {
                 $cat_title = $row['cat_title'];
                 $cat_id = $row['id'];
-                $selected = ($cat_id == $post_category_id) ? 'selected' : '';
-                echo "<option value='{$cat_id}' {$selected}>{$cat_title}</option>";
+                echo "<option value='{$cat_id}'>{$cat_title}</option>";
             }
             ?>
         </select>
     </div>
 
     <div class="form-group">
-        <label for="author">Post Author</label>
-        <input type="text" class="form-control" name="author" value="<?php echo $post_author; ?>">
+        <label for="title">Post Author</label>
+        <input type="text" class="form-control" name="author" value="<?php
+                                                                        echo $post_author;
+                                                                        ?>">
     </div>
 
     <div class="form-group">
         <label for="post_status">Post Status</label>
-        <select name="post_status" id="post_status" class="form-control">
+        <select name="post_status" id="post_status" class="form-control status-select">
             <option value="<?php echo $post_status; ?>" selected><?php echo ucfirst($post_status); ?></option>
             <?php
             if ($post_status == 'published') {
@@ -107,119 +113,73 @@ if (isset($_POST['update_post'])) {
 
     <div class="form-group">
         <label for="post_image">Post Image</label>
-        <div class="current-image">
-            <img width="100" src="../images/<?php echo $post_image; ?>" alt="Current post image">
-        </div>
-        <input type="file" name="image" class="form-control">
-        <small class="help-block">Leave empty to keep the current image</small>
+        <br>
+        <img width="100" src="../images/<?php echo $post_image; ?>" alt="">
+        <input type="file" name="image">
     </div>
 
     <div class="form-group">
         <label for="post_tags">Post Tags</label>
-        <input type="text" class="form-control" name="post_tags" value="<?php echo $post_tags; ?>">
-        <small class="help-block">Separate tags with commas</small>
+        <input type="text" class="form-control" name="post_tags" value="<?php
+                                                                        echo $post_tags;
+                                                                        ?>">
     </div>
 
     <div class="form-group">
         <label for="post_content">Post Content</label>
-        <textarea class="form-control" name="post_content" id="summernote" cols="30" rows="10"><?php echo $post_content; ?></textarea>
+        <textarea class="form-control" name="post_content" id="summernote" cols="30" rows="10"><?php
+                                                                                        echo $post_content;
+                                                                                        ?> </textarea>
     </div>
 
     <div class="form-group">
         <input type="submit" value="Update Post" name="update_post" class="btn btn-primary">
     </div>
+
 </form>
 
 <style>
-.edit-post-form {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.edit-post-form .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.edit-post-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--admin-text);
-    font-weight: 500;
-}
-
-.edit-post-form .form-control {
-    background-color: var(--admin-bg);
-    border: 1px solid var(--admin-border);
-    color: var(--admin-text);
-    border-radius: 6px;
-    padding: 10px 15px;
-    width: 100%;
-}
-
-.edit-post-form .form-control:focus {
-    border-color: var(--admin-primary);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-}
-
-.edit-post-form select.form-control {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 40px;
-}
-
-.edit-post-form select.form-control option {
-    background-color: var(--admin-card-bg);
-    color: var(--admin-text);
-    padding: 12px;
-}
-
-.edit-post-form .current-image {
-    margin-bottom: 1rem;
-    padding: 10px;
-    background-color: var(--admin-card-bg);
-    border-radius: 6px;
-    display: inline-block;
-}
-
-.edit-post-form .help-block {
-    color: var(--admin-text-muted);
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-}
-
-.edit-post-form .btn-primary {
-    padding: 10px 20px;
-    font-size: 1rem;
-}
-
-/* Summernote Editor Dark Theme */
-.note-editor {
-    background-color: var(--admin-bg) !important;
-    border-color: var(--admin-border) !important;
-}
-
-.note-editor .note-toolbar {
-    background-color: var(--admin-card-bg) !important;
-    border-color: var(--admin-border) !important;
-}
-
-.note-editor .note-editing-area {
-    background-color: var(--admin-bg) !important;
-}
-
-.note-editor .note-editable {
+/* Status Dropdown Specific Styles */
+.status-select {
     background-color: var(--admin-bg) !important;
     color: var(--admin-text) !important;
+    border: 1px solid var(--admin-border) !important;
+    border-radius: 6px !important;
+    padding: 10px 15px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 16px !important;
+    padding-right: 40px !important;
 }
 
-.note-editor .note-statusbar {
+.status-select:hover {
+    border-color: var(--admin-primary) !important;
+}
+
+.status-select:focus {
+    border-color: var(--admin-primary) !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+    outline: none !important;
+}
+
+.status-select option {
     background-color: var(--admin-card-bg) !important;
-    border-color: var(--admin-border) !important;
+    color: var(--admin-text) !important;
+    padding: 12px !important;
+}
+
+/* Status-specific colors */
+.status-select option[value="published"] {
+    color: var(--admin-success) !important;
+}
+
+.status-select option[value="draft"] {
+    color: var(--admin-warning) !important;
 }
 </style>
