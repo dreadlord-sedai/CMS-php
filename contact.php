@@ -6,7 +6,7 @@
 
 if (isset($_POST['submit'])) {
 
-    $to = $_POST['dahamifabbio@gmail.com'];
+    $to = $_POST['email'];
     $subject = $_POST['subject'];
     $body = $_POST['message'];
 
