@@ -9,14 +9,26 @@ A lightweight Content Management System built using **PHP**, **Bootstrap**, and 
   ### Home Page
   <img src="screenshots/Screenshot1.png" alt="Home Page" width="700">
   
-  ### Home Page (Letters)
-  <img src="./Screenshot2.png" alt="Home Page" width="700">  
+  ### Home Page (Pagination)
+  <img src="screenshots/Screenshot2.png" alt="Home Page" width="700"> 
   
-  ### User Profile (Your House)
-  <img src="./Screenshot3.png" alt="Home Page" width="700">
+  ### Admin Dashboard
+  <img src="screenshots/Screenshot3.png" alt="Home Page" width="700">
   
-  ### Explore Page (The Realm)
-  <img src="./Screenshot4.png" alt="Home Page" width="700">
+  ### View All Posts
+  <img src="screenshots/Screenshot4.png" alt="Home Page" width="700">
+
+  ### Add Post
+  <img src="screenshots/Screenshot5.png" alt="Home Page" width="700"> 
+  
+  ### Categories
+  <img src="screenshots/Screenshot6.png" alt="Home Page" width="700">
+  
+  ### Comments
+  <img src="screenshots/Screenshot7.png" alt="Home Page" width="700">
+
+  ### Profile Page
+  <img src="screenshots/Screenshot8.png" alt="Home Page" width="700">
 </details>
 
 ## Table of Contents
@@ -24,9 +36,13 @@ A lightweight Content Management System built using **PHP**, **Bootstrap**, and 
 - [CMS-php](#cms-php)
   - [Screenshots](#screenshots)
     - [Home Page](#home-page)
-    - [Home Page (Letters)](#home-page-letters)
-    - [User Profile (Your House)](#user-profile-your-house)
-    - [Explore Page (The Realm)](#explore-page-the-realm)
+    - [Home Page (Pagination)](#home-page-pagination)
+    - [Admin Dashboard](#admin-dashboard)
+    - [View All Posts](#view-all-posts)
+    - [Add Post](#add-post)
+    - [Categories](#categories)
+    - [Comments](#comments)
+    - [Profile Page](#profile-page)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Features](#features)
