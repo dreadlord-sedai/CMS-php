@@ -82,10 +82,10 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="form-group">
                                 <label for="message" class="sr-only">Message</label>
-                                <textarea name="message" id="message" class="form-control" placeholder="Enter Your Message here"></textarea>
+                                <textarea name="message" id="message" class="form-control" cols="50" rows="10" placeholder="Enter Your Message here"></textarea>
                             </div>
 
-                            <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Register">
+                            <input type="submit" name="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
                         </form>
 
                     </div>
