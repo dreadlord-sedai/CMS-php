@@ -6,8 +6,8 @@ A lightweight Content Management System built using **PHP**, **Bootstrap**, and 
 <details>
   <summary>Click to view screenshots</summary>
   
-  ### SignIn
-  <img src="./Screenshot1.png" alt="Home Page" width="700">
+  ### Home Page
+  <img src="screenshots/Screenshot1.png" alt="Home Page" width="700">
   
   ### Home Page (Letters)
   <img src="./Screenshot2.png" alt="Home Page" width="700">  
@@ -23,7 +23,7 @@ A lightweight Content Management System built using **PHP**, **Bootstrap**, and 
 
 - [CMS-php](#cms-php)
   - [Screenshots](#screenshots)
-    - [SignIn](#signin)
+    - [Home Page](#home-page)
     - [Home Page (Letters)](#home-page-letters)
     - [User Profile (Your House)](#user-profile-your-house)
     - [Explore Page (The Realm)](#explore-page-the-realm)
