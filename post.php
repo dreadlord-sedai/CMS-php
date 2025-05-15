@@ -9,15 +9,10 @@ include "includes/navigation.php";
 
 <!-- Page Content -->
 <div class="container">
-
     <div class="row">
-
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-
             <?php
-
-            // Check if 'p_id' is set in the URL
             if (isset($_GET['p_id'])) {
                 $the_post_id = $_GET['p_id'];
 
@@ -36,151 +31,119 @@ include "includes/navigation.php";
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
-                    $post_content = substr($row['post_content'], 0, 100);
+                    $post_content = $row['post_content'];
                     $post_status = $row['post_status'];
                     $post_comment_count = $row['post_comment_count'];
                     $post_category_id = $row['post_category_id'];
                     $post_tags = $row['post_tags'];
-
             ?>
+                    <article class="single-post">
+                        <header class="post-header">
+                            <h1 class="post-title"><?php echo $post_title; ?></h1>
+                            <div class="post-meta">
+                                <span class="post-author">
+                                    <i class="fas fa-user"></i> 
+                                    <a href="author_posts.php?author=<?php echo $post_author; ?>&p_id=<?php echo $the_post_id; ?>"><?php echo $post_author; ?></a>
+                                </span>
+                                <span class="post-date">
+                                    <i class="fas fa-calendar"></i> 
+                                    <?php echo $post_date; ?>
+                                </span>
+                                <span class="post-comments">
+                                    <i class="fas fa-comments"></i> 
+                                    <?php echo $post_comment_count; ?> Comments
+                                </span>
+                            </div>
+                        </header>
 
-                    <h1 class="page-header">
-                        Page Heading
-                        <small>Secondary Text</small>
-                    </h1>
+                        <div class="post-image">
+                            <img src="images/<?php echo $post_image; ?>" alt="<?php echo $post_title; ?>">
+                        </div>
 
-                    <!-- First Blog Post -->
+                        <div class="post-content">
+                            <?php echo $post_content; ?>
+                        </div>
 
-                    <h2>
-                        <a href="#"><?php echo $post_title; ?></a>
-                    </h2>
-                    <p class="lead">
-                        by <a href="#"><?php echo $post_author; ?></a>
-                    </p>
-                    <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $post_date; ?></p>
-                    <hr>
-                    <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
-                    <hr>
-                    <p><?php echo $post_content; ?></p>
+                        <div class="post-tags">
+                            <i class="fas fa-tags"></i> 
+                            <?php echo $post_tags; ?>
+                        </div>
+                    </article>
 
-                    <hr>
+                    <!-- Comments Section -->
+                    <section class="comments-section">
+                        <h3 class="section-title">Comments (<?php echo $post_comment_count; ?>)</h3>
 
+                        <!-- Comments Form -->
+                        <div class="comment-form-container">
+                            <h4>Leave a Comment</h4>
+                            <form action="#" method="post" role="form" class="comment-form">
+                                <div class="form-group">
+                                    <label for="comment_author">Name</label>
+                                    <input type="text" name="comment_author" class="form-control" required>
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="comment_email">Email</label>
+                                    <input type="email" name="comment_email" class="form-control" required>
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="comment_content">Your Comment</label>
+                                    <textarea name="comment_content" class="form-control" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" name="create_comment" class="btn btn-primary">Post Comment</button>
+                            </form>
+                        </div>
+
+                        <!-- Posted Comments -->
+                        <div class="comments-list">
+                            <?php
+                            $query = "SELECT * FROM comments WHERE comment_post_id = $the_post_id AND comment_status = 'approved' ORDER BY comment_id DESC";
+                            $select_comment_query = mysqli_query($connection, $query);
+                            if (!$select_comment_query) {
+                                die('QUERY FAILED' . mysqli_error($connection));
+                            }
+                            while ($row = mysqli_fetch_array($select_comment_query)) {
+                                $comment_date = $row['comment_date'];
+                                $comment_content = $row['comment_content'];
+                                $comment_author = $row['comment_author'];
+                            ?>
+                                <div class="comment">
+                                    <div class="comment-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($comment_author); ?>&background=random" alt="<?php echo $comment_author; ?>">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <h4 class="comment-author"><?php echo $comment_author; ?></h4>
+                                            <span class="comment-date"><?php echo $comment_date; ?></span>
+                                        </div>
+                                        <div class="comment-body">
+                                            <?php echo $comment_content; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </section>
             <?php
                 }
             } else {
                 header("Location: index.php");
             }
             ?>
-
-            <!-- Blog Comments -->
-
-            <?php
-
-            if (isset($_POST['create_comment'])) {
-
-                $the_post_id = $_GET['p_id'];
-                $comment_author = $_POST['comment_author'];
-                $comment_email = $_POST['comment_email'];
-                $comment_content = $_POST['comment_content'];
-
-
-                if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
-
-
-                    $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
-
-                    $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved',now())";
-
-                    $create_comment_query = mysqli_query($connection, $query);
-
-                    if (!$create_comment_query) {
-                        die('QUERY FAILED' . mysqli_error($connection));
-                    }
-
-                    // Increment comment count in posts table
-                    // $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 WHERE post_id = $the_post_id";
-                    // $update_comment_count = mysqli_query($connection, $query);
-                    // if (!$update_comment_count) {
-                    //     die('QUERY FAILED' . mysqli_error($connection));
-                    // }
-
-                    header("Location: post.php?p_id=$the_post_id");
-                }
-            }
-            ?>
-
-            <!-- Comments Form -->
-            <div class="well">
-                <h4>Leave a Comment:</h4>
-                <form action="#" method="post" role="form">
-
-                    <div class="form-group">
-                        <label for="Author">Author</label>
-                        <input type="text" name="comment_author" class="form-control" name="comment_author">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Author">Email</label>
-                        <input type="email" name="comment_email" class="form-control" name="comment_email">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="comment">Your Comment</label>
-                        <textarea name="comment_content" class="form-control" rows="3"></textarea>
-                    </div>
-                    <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-
-            <hr>
-
-            <!-- Posted Comments -->
-            <?php
-            // Display comments
-            $query = "SELECT * FROM comments WHERE comment_post_id = $the_post_id AND comment_status = 'approved' ORDER BY comment_id DESC";
-            $select_comment_query = mysqli_query($connection, $query);
-            if (!$select_comment_query) {
-                die('QUERY FAILED' . mysqli_error($connection));
-            }
-            while ($row = mysqli_fetch_array($select_comment_query)) {
-                $comment_date = $row['comment_date'];
-                $comment_content = $row['comment_content'];
-                $comment_author = $row['comment_author'];
-
-            ?>
-
-                <!-- Comment -->
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading"><?php echo $comment_author; ?>
-                            <small><?php echo $comment_date; ?></small>
-                        </h4>
-                        <?php echo $comment_content; ?>
-                    </div>
-                </div>
-
-            <?php
-            }
-            ?>
-
         </div>
 
         <!-- Blog Sidebar Widgets Column -->
         <?php
         include "includes/sidebar.php";
         ?>
-
     </div>
-    <!-- /.row -->
+</div>
 
-    <hr>
-
-    <!-- Footer -->
-    <?php
-    include "includes/footer.php";
-    ?>
+<!-- Footer -->
+<?php
+include "includes/footer.php";
+?>
