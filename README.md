@@ -1,15 +1,12 @@
 # CMS-php
 
-A Content Management System created using PHP, Bootstrap, and CSS.
-
-## [Project Name]
+A lightweight Content Management System built using **PHP**, **Bootstrap**, and **CSS**, designed for easy management of website content through a dedicated **admin dashboard**.
 
 ![image](screenshot.png)
 
 ## Table of Contents
 
 - [CMS-php](#cms-php)
-  - [\[Project Name\]](#project-name)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Features](#features)
@@ -22,95 +19,105 @@ A Content Management System created using PHP, Bootstrap, and CSS.
 
 ## Introduction
 
-[Provide a brief introduction about the project, its purpose, and what it aims to achieve. Highlight that this CMS is designed with a strong focus on the administrative interface for efficient content management.]
+**CMS-php** is a custom-built Content Management System designed to simplify website content updates and management via an intuitive admin panel. It allows admins to easily create, update, and delete pages, posts, and other dynamic content without touching code.
+
+Whether you're building a blog, portfolio, or simple business site, this CMS provides a foundation you can customize to meet your needs.
 
 ## Features
 
-This CMS offers a range of powerful features, especially within its admin pages, to provide comprehensive content control:
-
-* **User Roles and Permissions:** Define different access levels for users, ensuring that sensitive information and critical functions are accessible only to authorized personnel. This feature helps maintain data security and minimizes the risk of accidental changes.
-* **Intuitive Dashboard:** An easy-to-use dashboard provides a visual, digital overview of your website's key data and content workflow. It streamlines content production by reducing complexities and facilitating team collaboration.
-* **Content Management:** Create, manage, view, modify, and delete content without writing code. Version control allows you to keep track of changes and revert to older versions if needed.
-* **Content Editor/Rich Text Editor:** A user-friendly editor that allows you to add and format content, images, videos, forms, and calls to action with ease.
-* **Content Staging:** Test changes and preview your website before releasing them to the live site, ensuring a smooth user experience.
-* **Publishing Controls:** Schedule content publication, set expiration dates for content, and manage your content calendar effectively.
-* **SEO Optimization:** Tools to manage meta tags, customize URLs, and generate XML sitemaps, helping to improve your website's search engine ranking.
-* **Security Features:** Includes features like SSL certificates (HTTPS), user authentication, and potentially multi-factor authentication to protect your content and user data.
-* **Data Visualization and Dashboards:** Display data in various formats (tables, cards, graphs) to provide insights into website performance and user behavior.
-* **Audit Logs and User Activity Tracking:** Maintain a detailed history of actions taken by users within the system.
+* Secure admin login system
+* Create, edit, and delete pages and posts
+* Basic WYSIWYG editor integration
+* Media/image upload functionality
+* Responsive admin dashboard with Bootstrap
+* Simple front-end templating
+* Extendable for future modules (e.g., users, categories, etc.)
 
 ## Technologies Used
 
-* **HTML5:** \[Description]
-* **CSS3:** \[Description]
-* **JavaScript:** \[Description]
-* **PHP:** The core language for the CMS backend.
-* **Bootstrap:** A CSS framework for responsive design.
-* **[Framework or Library]**: \[Description]
-    ```html
-    <p align="left">
-      <a href="[https://skillicons.dev](https://skillicons.dev)">
-        <img src="[https://skillicons.dev/icons?i=java,py,js,react,flask,django,ts,nodejs,spring,tailwind,bootstrap,sass,php,mysql,postgres,html,css,c,vercel,docker](https://skillicons.dev/icons?i=java,py,js,react,flask,django,ts,nodejs,spring,tailwind,bootstrap,sass,php,mysql,postgres,html,css,c,vercel,docker)" />
-      </a>
-    </p>
-    ```
+* **HTML5**: Markup for structure and semantics
+* **CSS3**: Styling and responsive layout
+* **JavaScript**: Enhancing interactivity in the admin panel
+* **PHP**: Backend logic and routing
+* **MySQL**: Content and user data storage
+* **Bootstrap**: Frontend framework for responsive UI
+
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=php,bootstrap,mysql,html,css,js" />
+  </a>
+</p>
 
 ## Installation
 
 To get a local copy up and running, follow these steps:
 
-1.  **Clone the repository**:
+1. **Clone the repository**:
 
-    ```sh
-    git clone [https://github.com/](https://github.com/)[your-username]/[repository-name].git
-    ```
-2.  **Navigate to the project directory**:
+   ```sh
+   git clone https://github.com/dreadlord-sedai/cms-php.git
+   ```
 
-    ```sh
-    cd [repository-name]
-    ```
-3.  **Open index.html in your browser**:
+2. **Navigate to the project directory**:
 
-    ```sh
-    open index.html
-    ```
+   ```sh
+   cd cms-php
+   ```
 
-    (Note: This assumes a basic setup. You might need to configure a PHP server and database depending on your CMS structure.)
+3. **Set up the database**:
+
+   * Import the `database.sql` file into your MySQL server.
+   * Update database credentials in the `config.php` file.
+
+4. **Start your PHP server** (or use XAMPP, MAMP, or WAMP):
+
+   ```sh
+   php -S localhost:8000
+   ```
+
+5. **Access the CMS**:
+
+   Open your browser and navigate to `http://localhost:8000/admin` to access the admin panel.
 
 ## Usage
 
-* \[Instructions on how to use the project, especially focusing on how to access and use the admin pages. Describe the login process, navigation, and key functionalities.]
-* \[Any additional steps or explanations]
+* Navigate to `/admin` to log in and manage content.
+* Use the dashboard to create, edit, and delete content.
+* Any changes made in the admin area will be reflected on the public-facing website.
 
 ## Contributing
 
-Contributions are welcome! Follow these steps to contribute:
+Contributions are welcome! Follow these steps:
 
-1.  Fork the repository.
-2.  Create a new branch:
+1. Fork the repository
 
-    ```sh
-    git checkout -b feature/your-feature-name
-    ```
-3.  Make your changes and commit them:
+2. Create a new branch:
 
-    ```sh
-    git commit -m 'Add some feature'
-    ```
-4.  Push to the branch:
+   ```sh
+   git checkout -b feature/your-feature-name
+   ```
 
-    ```sh
-    git push origin feature/your-feature-name
-    ```
-5.  Open a pull request.
+3. Make your changes and commit them:
+
+   ```sh
+   git commit -m 'Add some feature'
+   ```
+
+4. Push to the branch:
+
+   ```sh
+   git push origin feature/your-feature-name
+   ```
+
+5. Open a pull request
 
 ## License
 
-This project is licensed under the [License Name]. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
 For any questions or feedback, feel free to reach out:
 
-* **[Your Name]**: [your-email@example.com](mailto:dahamifabbio@gmail.com)
-* **GitHub**: [[your-github-username]](https://github.com/[your-github-dreadlord-sedai])
+* **Dahami Fabio**: [dahamifabbio@gmail.com](mailto:dahamifabbio@gmail.com)
+* **GitHub**: [dreadlord-sedai](https://github.com/dreadlord-sedai)
